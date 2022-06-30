@@ -30,8 +30,10 @@ const Menu = () => {
                         {
                             user?.email || user?.displayName ? (
                                 <>
-                                    <CustomLink to="/" className='nav-link header-title'>Dashboard</CustomLink>
-
+                                   <>
+                                   <CustomLink to="/" className='nav-link header-title'>Dashboard</CustomLink>
+                                    <CustomLink to="/updateProfile" className='nav-link header-title'>Profile update</CustomLink>
+                                    </> 
                                     <button className='logout-btn' onClick={() => signOut(auth)}>Logout</button>
                                 </>
                             ) : (
