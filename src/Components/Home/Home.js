@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import Menu from '../../Menu/Menu';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 // import { toast } from 'react-toastify';
+import Footer from '../Shared/Footer/Footer';
+
 // import auth from '../../../firebase.init';
-// import Footer from '../../Shared/Footer/Footer';
-// import NavMenu from '../../Shared/NavMenu/NavMenu';
+
+
 // import Notes from '../Notes/Notes';
 import './Home.css';
 
@@ -13,7 +16,7 @@ const Home = () => {
 
     return (
         <div className='home-container'>
-            {/* <NavMenu></NavMenu> */}
+            <Menu></Menu>
             <div className='home'>
                 <h1 className=''><strong>T O D O</strong></h1>
                 <div className='input-fields'>
@@ -43,8 +46,8 @@ const Home = () => {
             <div className='HR'></div>
 
             {/* <Notes></Notes> */}
-
-            {/* <Footer></Footer> */}
+          
+            <Footer></Footer>
         </div>
     );
 };
