@@ -2,9 +2,10 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import auth from "../../../firebase.init";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
+
 
 const Register = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
 
     let displayError;
@@ -28,16 +30,21 @@ const Register = () => {
         navigate('/');
     }
 
+    
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
+        const displayName = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
+       
+
         createUserWithEmailAndPassword(email, password);
+        updateProfile({ displayName: displayName });
         event.target.reset();
-        console.log(name, email, password);
+        console.log(displayName, email, password);
 
     }
     return (
